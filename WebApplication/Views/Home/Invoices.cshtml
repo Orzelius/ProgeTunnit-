@@ -1,0 +1,22 @@
+﻿@model List<Invoice>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>No</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var invoice in Model) {
+                <tr>
+                    <td>
+                        <a asp-action="Invoice" asp-route-id="@invoice.Id">@invoice.Id</a>
+                    </td>
+                    <td>@invoice.InvoiceNr</td>
+                    <td>@invoice.InvoiceDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
